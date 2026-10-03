@@ -20,6 +20,9 @@ export interface Dict {
     chronicle: string;
     leaderboard: string;
     compare: string;
+    scenarios: string;
+    achievements: string;
+    about: string;
   };
 
   continent: {
@@ -154,9 +157,9 @@ export interface Dict {
     dataFrom: string;
     artFrom: string;
     credits: string;
-    /** 站长署名前缀，拼成「作者：程序员鱼皮」 */
+    /** 站长署名前缀，拼成「整理：徐旋」 */
     author: string;
-    /** 引流按钮前的引语 */
+    /** 个人成果入口前的引语 */
     alsoVisit: string;
     /** 开源仓库入口 */
     sourceCode: string;
@@ -187,16 +190,19 @@ export interface Dict {
  *    「记性」比「上下文窗口」对外行更好懂，这类留着。
  */
 const zh: Dict = {
-  siteName: '大模型世界',
-  siteTagline: '一眼看懂大模型的当下格局',
+  siteName: '徐旋 · AI 模型能力地图',
+  siteTagline: '面向企业与工业场景的大模型选型与应用能力地图',
   siteDescription:
-    '把每个大模型画成一个像素角色，用能力条和排行榜把「谁最聪明、谁最会编程、谁最便宜」摆在明面上。数据来自第三方公开评测，每 12 小时自动同步。',
+    '面向企业与工业场景的大模型选型与应用能力地图，整理模型能力、价格、上下文、评测和应用场景，帮助团队选择合适的模型。',
 
   nav: {
     plaza: '广场',
     chronicle: '时间线',
     leaderboard: '排行榜',
     compare: '对比',
+    scenarios: '工业场景',
+    achievements: '我的成果',
+    about: '关于',
   },
 
   continent: {
@@ -321,17 +327,17 @@ const zh: Dict = {
     dataFrom: '数据来自',
     artFrom: '字体',
     credits: '素材署名',
-    author: '作者',
-    alsoVisit: '也看看',
-    sourceCode: '源码开源',
-    sourceCodeHint: '本站代码、数据管线与抓取脚本全部开源（MIT），在 GitHub 上',
+    author: '整理',
+    alsoVisit: '了解更多',
+    sourceCode: '基于开源项目二次开发',
+    sourceCodeHint: '本站保留原项目许可，并对界面、内容和应用定位进行了修改',
   },
 
   reviews: {
     video: '查看评测视频',
     article: '查看评测文章',
     videoHint: (name) => `站外链接：到 B 站搜「${name} 测评」，看别人实测的视频`,
-    articleHint: '站外链接：鱼皮 AI 导航的「模型动态」，新模型的实测与横向对比文章',
+    articleHint: '站外链接：查看模型厂商或第三方发布的评测资料',
   },
 };
 

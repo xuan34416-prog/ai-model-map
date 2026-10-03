@@ -28,8 +28,8 @@ const ART_SOURCES = [
   },
 ];
 
-/** 站长与他的其他站点。放在页脚最上面一行，是全站唯一的引流位。站长名链到 B 站主页。 */
-const AUTHOR = { name: '程序员鱼皮', href: 'https://space.bilibili.com/12890453' };
+/** 当前成果网站的作者信息。 */
+const AUTHOR = { name: '徐旋', href: '/about/' };
 
 /**
  * 开源仓库。
@@ -38,30 +38,30 @@ const AUTHOR = { name: '程序员鱼皮', href: 'https://space.bilibili.com/1289
  * 那一排留给站长自己的站点。这里的三行本来就是在回答「这些东西都是哪来的」，
  * 「代码本身也是公开的」正好是同一个问题的最后一问。
  */
-const REPO = { name: 'liyupi/ai-model-world', href: 'https://github.com/liyupi/ai-model-world' };
+const REPO = { name: '开源致谢与许可', href: '/licenses/' };
 
-/** 免费教程单独拎出来做主按钮：三个站点并列时它会被淹没，而它是这里最值得点的一个。 */
+/** 个人成果入口。 */
 const TUTORIAL = {
-  name: 'AI 编程入门教程',
-  blurb: '零基础学 Vibe Coding',
-  href: 'https://ai.codefather.cn/vibe',
+  name: '我的成果',
+  blurb: '项目、研究与应用案例',
+  href: '/achievements/',
 };
 
 const AUTHOR_SITES = [
   {
-    name: '鱼皮 AI 导航',
-    blurb: 'AI 工具、资讯与提示词大全',
-    href: 'https://ai.codefather.cn',
+    name: '工业场景',
+    blurb: '面向企业的模型选型方向',
+    href: '/scenarios/',
   },
   {
-    name: '编程导航',
-    blurb: '程序员一站式编程学习交流社区',
-    href: 'https://www.codefather.cn',
+    name: '关于我',
+    blurb: '电气工程与 AI 应用实践',
+    href: '/about/',
   },
 ];
 
-/** 一条像素小鱼，站长的徽记 */
-function FishCrest({ size = 14 }: { size?: number }) {
+/** 一枚像素芯片，本站的徽记（替换原作者的鱼类徽记） */
+function ChipCrest({ size = 14 }: { size?: number }) {
   return (
     <svg
       width={size}
@@ -71,17 +71,19 @@ function FishCrest({ size = 14 }: { size?: number }) {
       aria-hidden
       className="shrink-0"
     >
-      <rect x="3" y="3" width="6" height="6" fill="var(--color-gold)" />
-      <rect x="2" y="4" width="1" height="4" fill="var(--color-gold)" />
-      <rect x="4" y="2" width="4" height="1" fill="var(--color-gold)" />
-      <rect x="4" y="9" width="4" height="1" fill="var(--color-gold)" />
-      <rect x="9" y="4" width="1" height="1" fill="var(--color-gold)" />
-      <rect x="9" y="7" width="1" height="1" fill="var(--color-gold)" />
-      <rect x="10" y="3" width="1" height="1" fill="var(--color-gold)" />
-      <rect x="10" y="8" width="1" height="1" fill="var(--color-gold)" />
-      <rect x="10" y="5" width="1" height="2" fill="var(--color-gold)" />
-      <rect x="4" y="4" width="1" height="1" fill="var(--color-ink)" />
-      <rect x="6" y="6" width="2" height="1" fill="var(--color-ink)" opacity="0.4" />
+      {/* 四角引脚 */}
+      <rect x="1" y="1" width="1" height="1" fill="var(--color-gold)" />
+      <rect x="10" y="1" width="1" height="1" fill="var(--color-gold)" />
+      <rect x="1" y="10" width="1" height="1" fill="var(--color-gold)" />
+      <rect x="10" y="10" width="1" height="1" fill="var(--color-gold)" />
+      {/* 芯片本体 */}
+      <rect x="2" y="2" width="8" height="8" fill="var(--color-gold)" />
+      {/* 中央线路 */}
+      <rect x="4" y="4" width="4" height="4" fill="var(--color-ink)" />
+      <rect x="5" y="3" width="2" height="1" fill="var(--color-ink)" />
+      <rect x="5" y="8" width="2" height="1" fill="var(--color-ink)" />
+      <rect x="3" y="5" width="1" height="2" fill="var(--color-ink)" />
+      <rect x="8" y="5" width="1" height="2" fill="var(--color-ink)" />
     </svg>
   );
 }
@@ -123,7 +125,7 @@ export function SiteFooter() {
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 font-pixel text-[13px] text-[var(--color-parchment)] hover:text-[var(--color-gold)]"
           >
-            <FishCrest />
+            <ChipCrest />
             {dict.footer.author}：{AUTHOR.name}
           </a>
           <span className="hidden opacity-40 sm:inline">|</span>
@@ -182,8 +184,9 @@ export function SiteFooter() {
         </div>
         <div className="mt-1 flex flex-wrap gap-x-1.5 gap-y-1" title={dict.footer.sourceCodeHint}>
           <span>{dict.footer.sourceCode}</span>
-          <ExtLink href={REPO.href}>{REPO.name}</ExtLink>
-          <span className="opacity-70">（MIT）</span>
+          <Link href={REPO.href} className="text-[var(--color-parchment)] underline decoration-dotted underline-offset-2 hover:text-[var(--color-gold)]">
+            {REPO.name}
+          </Link>
         </div>
       </div>
     </footer>
