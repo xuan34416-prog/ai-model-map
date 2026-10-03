@@ -11,7 +11,6 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    // scripts/ 下的管线脚本用 tsx 直接跑，写 .ts 后缀导入更符合 Node ESM 直觉
     "allowImportingTsExtensions": true,
     "jsx": "react-jsx",
     "incremental": true,
